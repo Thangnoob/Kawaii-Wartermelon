@@ -430,6 +430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1243566698}
+  - component: {fileID: 1243566699}
   m_Layer: 0
   m_Name: Fruit Manager
   m_TagString: Untagged
@@ -452,6 +453,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 646818057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1243566699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243566697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a448aa299faa5264baad714679e7920c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitPrefab: {fileID: 2509856056775535482, guid: 3367104c04a92e546a1e81ca23e76e59, type: 3}
 --- !u!4 &1905503254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
