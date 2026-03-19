@@ -1,0 +1,26 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FruitManager : MonoBehaviour
+{
+    [Header(" Elements ")]
+    [SerializeField] private GameObject fruitPrefab;
+    
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+            ManagePlayerInput();
+    }
+
+    private void ManagePlayerInput()
+    {
+        Instantiate(fruitPrefab, GetClickedPositionInput(), Quaternion.identity);
+    }
+
+    private Vector2 GetClickedPositionInput()
+    {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+}
