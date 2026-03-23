@@ -1,29 +1,49 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FruitManager : MonoBehaviour
 {
     [Header(" Elements ")]
-    [SerializeField] private Fruit fruitPrefab;
+    [SerializeField] private Fruit[] fruitPrefabs;
+    [SerializeField] private Fruit[] spawnableFruits;
+    [SerializeField] private Transform fruitParent;
     [SerializeField] private LineRenderer spawnFruitLine;
     private Fruit currentFruit;
 
     [Header(" Settings ")]
     [SerializeField] private float spawnYPosition;
+    [SerializeField] private float spawnDelay = 0.5f;
+    private bool canControl;
+    private bool isControlling;
+
+    [Header(" Next Fruit Settings ")]
+    private int nextFruitIndex;
 
     [Header( "Debug" )]
     [SerializeField] private bool enableGizmos;
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
-        HideLine(); 
+        MergeManager.onMergeProgressed += MergeProgressCallback;
+
+        canControl = true;
+        HideLine();
+
+        SetNextFruitIndex();
     }
+
+
 
     private void Update()
     {
-        ManagePlayerInput();
+        if ( canControl )
+        {
+            ManagePlayerInput();
+        }
     }
 
     //=========================================
@@ -33,9 +53,18 @@ public class FruitManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
             MouseDownCallBack();
+        
         else if (Input.GetMouseButton(0))
-            MouseDragCallBack();
-        else if (Input.GetMouseButtonUp(0))
+        {
+            if (isControlling)
+            {
+                MouseDragCallBack();
+            }
+            else
+                MouseDownCallBack();
+        }
+        
+        else if (Input.GetMouseButtonUp(0) && isControlling)
             MouseUpCallBack();
     }
     private void MouseDownCallBack()
@@ -44,6 +73,7 @@ public class FruitManager : MonoBehaviour
         PlaceLineAtClickedPosition();
 
         SpawnFruit();
+        isControlling = true;
     }
 
     private void MouseDragCallBack()
@@ -57,6 +87,21 @@ public class FruitManager : MonoBehaviour
         HideLine();
 
         currentFruit.EnablePhysics();
+
+        StartControlTimer();
+
+        isControlling = false;
+    }
+
+    private void StartControlTimer()
+    {
+        canControl = false;
+        Invoke("StopControlTimer", spawnDelay);  
+    }
+
+    private void StopControlTimer()
+    {
+        canControl = true;
     }
 
     //=========================================
@@ -66,10 +111,16 @@ public class FruitManager : MonoBehaviour
     {
         Vector2 spawnPosition = GetSpawnPosition();
 
-        currentFruit = Instantiate(fruitPrefab, spawnPosition, Quaternion.identity);
+        currentFruit = Instantiate(
+            spawnableFruits[nextFruitIndex], 
+            spawnPosition, 
+            Quaternion.identity, 
+            fruitParent);
+
+        SetNextFruitIndex();
     }
     //==========================================
-    //LINE 
+    //SPAWN LINE 
     //==========================================
     private void HideLine()
     {
@@ -90,8 +141,6 @@ public class FruitManager : MonoBehaviour
     //==========================================
     // POSITION 
     //==========================================
-
-
     private Vector2 GetClickedPositionInput()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -102,6 +151,39 @@ public class FruitManager : MonoBehaviour
         Vector2 worldClickedPosition = GetClickedPositionInput();
         worldClickedPosition.y = spawnYPosition;
         return worldClickedPosition;
+    }
+
+    //===========================================
+    //MERGE CALLBACK
+    //===========================================
+    private void MergeProgressCallback(FruitType type, Vector2 position)
+    {
+        for (int i = 0; i < fruitPrefabs.Length; i++)
+        {
+            if (fruitPrefabs[i].GetFruitType() == type)
+            {
+                SpawnMergedFruit(fruitPrefabs[i], position);
+                break;
+            }
+        }
+    }
+
+    private void SpawnMergedFruit(Fruit spawnFruit, Vector2 spawnPosition)
+    {
+        Fruit mergedFruit = Instantiate(spawnFruit, spawnPosition, Quaternion.identity, fruitParent);
+        mergedFruit.EnablePhysics();
+    }
+    //===========================================
+    //NEXT FRUIT GET/SET
+    //===========================================
+    private void SetNextFruitIndex()
+    {
+        nextFruitIndex = Random.Range(0, spawnableFruits.Length);
+    }
+
+    public string GetNextFruitName()
+    {
+        return spawnableFruits[nextFruitIndex].GetFruitType().ToString();
     }
 
 #if UNITY_EDITOR
