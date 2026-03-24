@@ -186,6 +186,11 @@ public class FruitManager : MonoBehaviour
         return spawnableFruits[nextFruitIndex].GetFruitType().ToString();
     }
 
+    public Sprite GetNextFruitSprite()
+    {
+        return spawnableFruits[nextFruitIndex].GetFruitSprite();
+    }
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

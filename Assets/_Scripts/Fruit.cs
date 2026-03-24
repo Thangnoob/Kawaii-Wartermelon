@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    [Header(" Elements ")]
+    [SerializeField] private SpriteRenderer fruitSprite;
+
     [Header(" Data ")]
     [SerializeField] private FruitType fruiType;
 
@@ -45,5 +48,10 @@ public class Fruit : MonoBehaviour
     public FruitType GetFruitType()
     {
         return this.fruiType;
+    }
+
+    public Sprite GetFruitSprite()
+    {
+        return fruitSprite.sprite;
     }
 }

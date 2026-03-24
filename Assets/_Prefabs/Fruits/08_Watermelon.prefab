@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2554492477019323079}
-  - component: {fileID: 2743493505328139085}
+  - component: {fileID: 7876161280468420812}
   - component: {fileID: 931467897154968710}
   - component: {fileID: 8945763777642742529}
   - component: {fileID: 5638130291541834310}
@@ -30,14 +30,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1025385484468987335}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2743493505328139085
-CircleCollider2D:
+--- !u!60 &7876161280468420812
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -45,7 +45,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 2509856056775535482}
   m_Enabled: 0
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5eabc26f8c07c68479723aef73614ef2, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -69,8 +69,36 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.20858836, y: 0.12152077}
+      - {x: 0.17179506, y: 0.17913093}
+      - {x: 0.13218106, y: 0.2173821}
+      - {x: 0.051961496, y: 0.25679538}
+      - {x: -0.038909942, y: 0.25627822}
+      - {x: -0.1362927, y: 0.2089454}
+      - {x: -0.19324751, y: 0.14571184}
+      - {x: -0.21466461, y: 0.08852574}
+      - {x: -0.23181011, y: 0.026836932}
+      - {x: -0.22466563, y: -0.08817649}
+      - {x: -0.16531336, y: -0.18615486}
+      - {x: -0.08569052, y: -0.23648842}
+      - {x: -0.043831352, y: -0.25247335}
+      - {x: 0.0566116, y: -0.2522564}
+      - {x: 0.121087685, y: -0.22251815}
+      - {x: 0.1794323, y: -0.16809872}
+      - {x: 0.223433, y: -0.07852335}
+      - {x: 0.23191741, y: 0.012130916}
+  m_UseDelaunayMesh: 0
 --- !u!50 &931467897154968710
 Rigidbody2D:
   serializedVersion: 4
@@ -110,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad435e555338824eaf1abe127dda7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fruitSprite: {fileID: 2100830401778898059}
   fruiType: 8
 --- !u!95 &5638130291541834310
 Animator:
@@ -205,8 +234,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.19107865, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 41386e14cae1f134fb150af85258b587, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(FruitManager))]
 public class InGameUI : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private TextMeshProUGUI nextFruitText;
+    [SerializeField] private Image nextFruitImage;
     private FruitManager fruitManager;
 
     private void Awake()
@@ -24,5 +26,6 @@ public class InGameUI : MonoBehaviour
     void Update()
     {
         nextFruitText.text = "Next: " + fruitManager.GetNextFruitName();
+        nextFruitImage.sprite = fruitManager.GetNextFruitSprite();
     }
 }
