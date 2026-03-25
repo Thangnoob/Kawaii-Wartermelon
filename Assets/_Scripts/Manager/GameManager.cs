@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public static Action<GameState> OnGameStateChanged;
+    public static Action<GameState> onGameStateChanged;
 
     [Header(" Settings ")]
     [SerializeField] GameState gameState;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public void SetGameState(GameState gameState)
     {
         this.gameState = gameState;
-        OnGameStateChanged?.Invoke(gameState);  
+        onGameStateChanged?.Invoke(gameState);  
     }
 
     public bool IsInGameState()

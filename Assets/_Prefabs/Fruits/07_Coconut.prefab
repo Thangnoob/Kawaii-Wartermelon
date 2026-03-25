@@ -96,7 +96,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &8945763777642742529
 MonoBehaviour:
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitSprite: {fileID: 2100830401778898059}
   fruiType: 7
+  mergeParticle: {fileID: 0}
 --- !u!95 &5638130291541834310
 Animator:
   serializedVersion: 5

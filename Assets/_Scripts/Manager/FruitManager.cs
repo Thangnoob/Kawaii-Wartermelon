@@ -27,7 +27,7 @@ public class FruitManager : MonoBehaviour
     [SerializeField] private bool enableGizmos;
 
     [Header(" Actions ")]
-    public static Action OnNextFruitIndexSet;
+    public static Action onNextFruitIndexSet;
 
     private void Awake()
     {
@@ -47,7 +47,10 @@ public class FruitManager : MonoBehaviour
         SetNextFruitIndex();
     }
 
-
+    private void OnDestroy()
+    {
+        MergeManager.onMergeProgressed -= MergeProgressCallback;    
+    }
 
     private void Update()
     {
@@ -194,7 +197,7 @@ public class FruitManager : MonoBehaviour
     {
         nextFruitIndex = Random.Range(0, spawnableFruits.Length);
 
-        OnNextFruitIndexSet?.Invoke();
+        onNextFruitIndexSet?.Invoke();
     }
 
     public string GetNextFruitName()

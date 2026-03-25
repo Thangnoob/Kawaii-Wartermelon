@@ -17,7 +17,12 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.OnGameStateChanged += GameStateChangedCallback;
+        GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
     }
 
     private void GameStateChangedCallback(GameState state)

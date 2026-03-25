@@ -419,6 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305389356}
+  - component: {fileID: 305389357}
   m_Layer: 0
   m_Name: Gameover UI
   m_TagString: Untagged
@@ -448,6 +449,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &305389357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305389355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a4136f0413859746a530de0c7d8856a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextButton: {fileID: 2046500748}
 --- !u!4 &329536935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
@@ -1673,25 +1687,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefabs:
-  - {fileID: 8945763777642742529, guid: 3367104c04a92e546a1e81ca23e76e59, type: 3}
-  - {fileID: 8945763777642742529, guid: 7fa19c2b71fc91840a592485eabed924, type: 3}
-  - {fileID: 8945763777642742529, guid: 4b1f3350d52503949a847b7f3eadf2d5, type: 3}
-  - {fileID: 8945763777642742529, guid: 24ec4c8312e1280418c42f1bcb714140, type: 3}
-  - {fileID: 8945763777642742529, guid: 01f58de2feefa6949982584f171748fe, type: 3}
-  - {fileID: 8945763777642742529, guid: d28d654aead613044839ad9dac091e57, type: 3}
-  - {fileID: 8945763777642742529, guid: fcb04bf85a71b3d4d8251d84e5d77f36, type: 3}
-  - {fileID: 8945763777642742529, guid: 79ecc96de6baa5c49a635ce7edb5300f, type: 3}
-  - {fileID: 8945763777642742529, guid: 77d3c2e79a1efb341945b26b1cf3ffa7, type: 3}
+  - {fileID: 362144958771182552, guid: 1b4876a749aca8b4cb3a2691cfbe8b3d, type: 3}
+  - {fileID: 55054359319017592, guid: 5217351edfe1365409ea4100e2ca1442, type: 3}
+  - {fileID: 7121541812403790964, guid: 73b8a22a78ad53344a72a15cdb6ff2c1, type: 3}
+  - {fileID: 6704617936452569119, guid: 422432878a214c64c9ce0ab9b7184b69, type: 3}
+  - {fileID: 1721780557948940368, guid: 1b1d164e258dfb24e8df940558bfb5b4, type: 3}
+  - {fileID: 309979356077092815, guid: 80f4bb5cde7f9be438a7fe8c26988c59, type: 3}
+  - {fileID: 2543075415928833217, guid: 3f3f305ad007882428566a9a9546a8a3, type: 3}
+  - {fileID: 5832008002926675280, guid: 7080cd94e68f0dd4cbf8ebf841bec8bc, type: 3}
+  - {fileID: 1464848381453599736, guid: 378fe18bee2ada2488b98446d700ec50, type: 3}
   spawnableFruits:
-  - {fileID: 8945763777642742529, guid: 3367104c04a92e546a1e81ca23e76e59, type: 3}
-  - {fileID: 8945763777642742529, guid: 7fa19c2b71fc91840a592485eabed924, type: 3}
-  - {fileID: 8945763777642742529, guid: 4b1f3350d52503949a847b7f3eadf2d5, type: 3}
-  - {fileID: 8945763777642742529, guid: 24ec4c8312e1280418c42f1bcb714140, type: 3}
-  - {fileID: 8945763777642742529, guid: 01f58de2feefa6949982584f171748fe, type: 3}
-  - {fileID: 8945763777642742529, guid: d28d654aead613044839ad9dac091e57, type: 3}
-  - {fileID: 8945763777642742529, guid: fcb04bf85a71b3d4d8251d84e5d77f36, type: 3}
-  - {fileID: 8945763777642742529, guid: 79ecc96de6baa5c49a635ce7edb5300f, type: 3}
-  - {fileID: 8945763777642742529, guid: 77d3c2e79a1efb341945b26b1cf3ffa7, type: 3}
+  - {fileID: 362144958771182552, guid: 1b4876a749aca8b4cb3a2691cfbe8b3d, type: 3}
+  - {fileID: 55054359319017592, guid: 5217351edfe1365409ea4100e2ca1442, type: 3}
+  - {fileID: 7121541812403790964, guid: 73b8a22a78ad53344a72a15cdb6ff2c1, type: 3}
+  - {fileID: 6704617936452569119, guid: 422432878a214c64c9ce0ab9b7184b69, type: 3}
   fruitParent: {fileID: 1987555182}
   spawnFruitLine: {fileID: 296794312}
   spawnYPosition: 3.5

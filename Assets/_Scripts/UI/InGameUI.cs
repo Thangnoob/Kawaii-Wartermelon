@@ -12,7 +12,12 @@ public class InGameUI : MonoBehaviour
 
     private void Start()
     {
-        FruitManager.OnNextFruitIndexSet += UpdateNextFruitImage;
+        FruitManager.onNextFruitIndexSet += UpdateNextFruitImage;
+    }
+
+    private void OnDestroy()
+    {
+        FruitManager.onNextFruitIndexSet -= UpdateNextFruitImage;
     }
 
     private void UpdateNextFruitImage()

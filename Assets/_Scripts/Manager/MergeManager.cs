@@ -13,10 +13,10 @@ public class MergeManager : MonoBehaviour
     {
         Fruit.onCollisionWithFruit += CollisionBetweenFruitsCallback;
     }
-    
-    private void Update()
+
+    private void OnDestroy()
     {
-        
+        Fruit.onCollisionWithFruit -= CollisionBetweenFruitsCallback;
     }
 
     private void CollisionBetweenFruitsCallback(Fruit sender, Fruit otherFruit)
@@ -40,8 +40,8 @@ public class MergeManager : MonoBehaviour
 
         onMergeProgressed?.Invoke(mergeFruitType, mergePosition);
 
-        Destroy(sender.gameObject);
-        Destroy(otherFruit.gameObject);
+        sender.Merge();
+        otherFruit.Merge();
 
         StartCoroutine(ResetLastSenderCoroutine());
     }
