@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Fruit : MonoBehaviour
 {
@@ -10,18 +11,10 @@ public class Fruit : MonoBehaviour
 
     [Header(" Data ")]
     [SerializeField] private FruitType fruiType;
+    private bool hasCollided;
 
     [Header(" Actions ")]
     public static Action<Fruit, Fruit> onCollisionWithFruit;
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
 
     public void MoveToPosition(Vector2 newPosition)
     {
@@ -36,6 +29,8 @@ public class Fruit : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        hasCollided = true;
+
         if (collision.collider.TryGetComponent<Fruit>(out Fruit otherFruit))
         {
             if (otherFruit.GetFruitType() != fruiType)
@@ -53,5 +48,10 @@ public class Fruit : MonoBehaviour
     public Sprite GetFruitSprite()
     {
         return fruitSprite.sprite;
+    }
+
+    public bool HasCollided()
+    {
+        return hasCollided;
     }
 }
