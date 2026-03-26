@@ -39,7 +39,7 @@ public class FruitManager : MonoBehaviour
 
     private void Start()
     {
-        MergeManager.onMergeProgressed += MergeProgressCallback;
+        MergeManager.onMergeProcessed += MergeProgressCallback;
 
         canControl = true;
         HideLine();
@@ -49,7 +49,7 @@ public class FruitManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        MergeManager.onMergeProgressed -= MergeProgressCallback;    
+        MergeManager.onMergeProcessed -= MergeProgressCallback;    
     }
 
     private void Update()

@@ -6,7 +6,7 @@ using UnityEngine;
 public class MergeManager : MonoBehaviour
 {
     [Header(" Actions ")]
-    public static Action<FruitType, Vector2> onMergeProgressed;
+    public static Action<FruitType, Vector2> onMergeProcessed;
     Fruit lastSender;
 
     private void Start()
@@ -38,7 +38,7 @@ public class MergeManager : MonoBehaviour
 
         Vector2 mergePosition = (sender.transform.position + otherFruit.transform.position) / 2;
 
-        onMergeProgressed?.Invoke(mergeFruitType, mergePosition);
+        onMergeProcessed?.Invoke(mergeFruitType, mergePosition);
 
         sender.Merge();
         otherFruit.Merge();
