@@ -12,5 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373dc49bf4269ff42b19d0d95c986b0b, type: 3}
   m_Name: 01_GlassyFruits
   m_EditorClassIdentifier: 
-  objectPrefabs: []
-  spawnablePrefabs: []
+  objectPrefabs:
+  - {fileID: 362144958771182552, guid: edd7a6f8292f81a4db2ca1f0f9d20381, type: 3}
+  - {fileID: 55054359319017592, guid: 7bba9573697caf14aabdf7e865fae3ee, type: 3}
+  - {fileID: 7121541812403790964, guid: 7b3552b71b40bf847964c0b60a6df695, type: 3}
+  - {fileID: 6704617936452569119, guid: 76aa22f870fcc2a43a1e4cc16caf07f0, type: 3}
+  - {fileID: 1721780557948940368, guid: e06bdc93d07cc0946a4e5507b0019596, type: 3}
+  - {fileID: 309979356077092815, guid: 114c2662105023d488b3ca58f7cc367f, type: 3}
+  - {fileID: 2543075415928833217, guid: 600c914252be84944a1419cbd69124ed, type: 3}
+  - {fileID: 5832008002926675280, guid: e63fb63c78428ae48a2d6f95e995704e, type: 3}
+  - {fileID: 1464848381453599736, guid: 85b3af6fa21fc4544ba5052dd025fb86, type: 3}
+  spawnablePrefabs:
+  - {fileID: 362144958771182552, guid: edd7a6f8292f81a4db2ca1f0f9d20381, type: 3}
+  - {fileID: 55054359319017592, guid: 7bba9573697caf14aabdf7e865fae3ee, type: 3}
+  - {fileID: 7121541812403790964, guid: 7b3552b71b40bf847964c0b60a6df695, type: 3}
+  - {fileID: 6704617936452569119, guid: 76aa22f870fcc2a43a1e4cc16caf07f0, type: 3}

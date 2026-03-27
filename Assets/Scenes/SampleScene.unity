@@ -172,9 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4241f901ec6724e8c96a57dd6729bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetProgressButton: {fileID: 927715719}
-  resetProgressPrompt: {fileID: 946468903}
+  sfxToggle: {fileID: 1306369151}
   pushMagnitudeSlider: {fileID: 874287556}
+  resetProgressPrompt: {fileID: 946468903}
+  resetProgressButton: {fileID: 927715719}
 --- !u!1 &17347182
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714d2d7ff0ce8fc4ca8c5a933e28c467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushRadius: 3
+  pushRadius: 1.5
   minPushMagnitude: 100
   maxPushMagnitude: 1000
   pushMagnitude: 200
@@ -2688,6 +2689,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770854310}
   m_CullTransparentMesh: 1
+--- !u!1 &796225702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4709374892367611280, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
+  m_PrefabInstance: {fileID: 1091056298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &802223299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3605,7 +3611,7 @@ Transform:
   m_GameObject: {fileID: 934074792}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: -1.54, z: 0}
+  m_LocalPosition: {x: -5, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3724,6 +3730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 934521104}
+  - component: {fileID: 934521105}
   m_Layer: 0
   m_Name: ---ENVIRONEMENT---
   m_TagString: Untagged
@@ -3752,6 +3759,20 @@ Transform:
   - {fileID: 934074793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &934521105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934521103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795172567f99c4d4680bd856ab74a762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftWall: {fileID: 1781781058}
+  rightWall: {fileID: 796225702}
 --- !u!1 &946468903
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,7 +4084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
       propertyPath: m_LocalScale.y
@@ -4071,7 +4092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4415,6 +4436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1179112918}
   - component: {fileID: 1179112919}
+  - component: {fileID: 1179112920}
   m_Layer: 0
   m_Name: Gameover Manager
   m_TagString: Untagged
@@ -4452,6 +4474,20 @@ MonoBehaviour:
   fruitParentTransfrom: {fileID: 1987555182}
   fruitDeadline: {fileID: 934074792}
   threshHold: 3
+--- !u!114 &1179112920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179112917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d18876271958b44a5bea4cb69c1e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadlineFruit: {fileID: 934074792}
+  fruitParent: {fileID: 1987555182}
 --- !u!1 &1218580685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4619,21 +4655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a448aa299faa5264baad714679e7920c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitPrefabs:
-  - {fileID: 362144958771182552, guid: 1b4876a749aca8b4cb3a2691cfbe8b3d, type: 3}
-  - {fileID: 55054359319017592, guid: 5217351edfe1365409ea4100e2ca1442, type: 3}
-  - {fileID: 7121541812403790964, guid: 73b8a22a78ad53344a72a15cdb6ff2c1, type: 3}
-  - {fileID: 6704617936452569119, guid: 422432878a214c64c9ce0ab9b7184b69, type: 3}
-  - {fileID: 1721780557948940368, guid: 1b1d164e258dfb24e8df940558bfb5b4, type: 3}
-  - {fileID: 309979356077092815, guid: 80f4bb5cde7f9be438a7fe8c26988c59, type: 3}
-  - {fileID: 2543075415928833217, guid: 3f3f305ad007882428566a9a9546a8a3, type: 3}
-  - {fileID: 5832008002926675280, guid: 7080cd94e68f0dd4cbf8ebf841bec8bc, type: 3}
-  - {fileID: 1464848381453599736, guid: 378fe18bee2ada2488b98446d700ec50, type: 3}
-  spawnableFruits:
-  - {fileID: 362144958771182552, guid: 1b4876a749aca8b4cb3a2691cfbe8b3d, type: 3}
-  - {fileID: 55054359319017592, guid: 5217351edfe1365409ea4100e2ca1442, type: 3}
-  - {fileID: 7121541812403790964, guid: 73b8a22a78ad53344a72a15cdb6ff2c1, type: 3}
-  - {fileID: 6704617936452569119, guid: 422432878a214c64c9ce0ab9b7184b69, type: 3}
+  skinData: {fileID: 11400000, guid: 9e750e8a21abb984589716b98c98a253, type: 2}
   fruitParent: {fileID: 1987555182}
   spawnFruitLine: {fileID: 296794312}
   spawnYPosition: 3.5
@@ -5795,6 +5817,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1781781058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4709374892367611280, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
+  m_PrefabInstance: {fileID: 4552524261757520711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1784040781
 GameObject:
   m_ObjectHideFlags: 0
@@ -6672,7 +6699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
       propertyPath: m_LocalScale.y
@@ -6680,7 +6707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
       propertyPath: m_LocalPosition.y
