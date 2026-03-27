@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6876835413517158336
+--- !u!1001 &2229686752306046837
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,21 +8,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387493329482793441, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 387493329482793441, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100830401778898059, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1483360438, guid: e82898757573d4041ae9dd05f016347e, type: 3}
     - target: {fileID: 2509856056775535482, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       propertyPath: m_Name
-      value: 06_Melon
+      value: 02_Plum
       objectReference: {fileID: 0}
     - target: {fileID: 2554492477019323079, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.5
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 2554492477019323079, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.5
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 2554492477019323079, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.5
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 2554492477019323079, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8945763777642742529, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       propertyPath: fruiType
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74,20 +86,20 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2509856056775535482, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4276281609509521329}
+      addedObject: {fileID: -4767725243238676973}
   m_SourcePrefab: {fileID: 100100000, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
---- !u!1 &9060012743367830714 stripped
+--- !u!1 &4334077476552526863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2509856056775535482, guid: 2944a9a040883ac49b069cb56de31a70, type: 3}
-  m_PrefabInstance: {fileID: 6876835413517158336}
+  m_PrefabInstance: {fileID: 2229686752306046837}
   m_PrefabAsset: {fileID: 0}
---- !u!60 &-4276281609509521329
+--- !u!60 &-4767725243238676973
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9060012743367830714}
+  m_GameObject: {fileID: 4334077476552526863}
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
@@ -113,7 +125,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.02}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -125,35 +137,40 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.23053853, y: -0.0016320604}
-      - {x: 0.2212895, y: 0.03980005}
-      - {x: 0.18150045, y: 0.11471765}
-      - {x: 0.1261105, y: 0.16166222}
-      - {x: 0.0798886, y: 0.18242106}
-      - {x: 0.024370909, y: 0.19776398}
-      - {x: 0.026626958, y: 0.2077812}
-      - {x: 0.0087425085, y: 0.25886652}
-      - {x: -0.12320261, y: 0.21626857}
-      - {x: -0.17900729, y: 0.20052846}
-      - {x: -0.16513504, y: 0.16412649}
-      - {x: -0.1479424, y: 0.14675494}
-      - {x: -0.18961573, y: 0.10379739}
-      - {x: -0.20936248, y: 0.07032376}
-      - {x: -0.2285415, y: 0.01846373}
-      - {x: -0.23207553, y: -0.03548883}
-      - {x: -0.22835208, y: -0.07763149}
-      - {x: -0.21268809, y: -0.12446314}
-      - {x: -0.18807255, y: -0.16584466}
-      - {x: -0.15894184, y: -0.19687665}
-      - {x: -0.12240765, y: -0.22603655}
-      - {x: -0.08241296, y: -0.2437038}
-      - {x: -0.034061074, y: -0.2560957}
-      - {x: 0.04622437, y: -0.25301445}
-      - {x: 0.07733861, y: -0.24349551}
-      - {x: 0.110239424, y: -0.23068248}
-      - {x: 0.14969535, y: -0.20476465}
-      - {x: 0.18028791, y: -0.17374048}
-      - {x: 0.20568492, y: -0.13764198}
-      - {x: 0.22012371, y: -0.102553934}
-      - {x: 0.23323572, y: -0.05391321}
+    - - {x: 0.23282401, y: -0.03696543}
+      - {x: 0.22901087, y: 0.0070709195}
+      - {x: 0.21305966, y: 0.055994306}
+      - {x: 0.2037498, y: 0.08076163}
+      - {x: 0.17444801, y: 0.119549364}
+      - {x: 0.14961703, y: 0.14291203}
+      - {x: 0.07221745, y: 0.1859993}
+      - {x: 0.07030149, y: 0.18756656}
+      - {x: 0.06827002, y: 0.19780383}
+      - {x: 0.0646036, y: 0.20397092}
+      - {x: 0.06263165, y: 0.2079745}
+      - {x: 0.06102225, y: 0.2084087}
+      - {x: 0.05927611, y: 0.21201363}
+      - {x: 0.049550615, y: 0.21807466}
+      - {x: 0.024254827, y: 0.22141376}
+      - {x: 0.005874602, y: 0.21297632}
+      - {x: -0.00522657, y: 0.19475724}
+      - {x: -0.05242085, y: 0.19053599}
+      - {x: -0.09590749, y: 0.17694968}
+      - {x: -0.15400034, y: 0.14513382}
+      - {x: -0.20447782, y: 0.08225666}
+      - {x: -0.22515915, y: 0.032971174}
+      - {x: -0.23316553, y: -0.028470399}
+      - {x: -0.22868647, y: -0.08460991}
+      - {x: -0.20741652, y: -0.13706478}
+      - {x: -0.17567945, y: -0.18285054}
+      - {x: -0.13780895, y: -0.21460211}
+      - {x: -0.088226244, y: -0.24158198}
+      - {x: -0.031137832, y: -0.25443226}
+      - {x: 0.022018135, y: -0.25627398}
+      - {x: 0.075544834, y: -0.24842551}
+      - {x: 0.12820044, y: -0.22200797}
+      - {x: 0.15153307, y: -0.20316935}
+      - {x: 0.17866307, y: -0.17607443}
+      - {x: 0.20520489, y: -0.13895993}
+      - {x: 0.22736488, y: -0.08571826}
   m_UseDelaunayMesh: 0

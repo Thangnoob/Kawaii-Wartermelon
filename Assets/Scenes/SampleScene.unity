@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetProgressButton: {fileID: 927715719}
   resetProgressPrompt: {fileID: 946468903}
+  pushMagnitudeSlider: {fileID: 874287556}
 --- !u!1 &17347182
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +686,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushRadius: 3
+  minPushMagnitude: 100
+  maxPushMagnitude: 1000
   pushMagnitude: 200
   enableGizmos: 0
 --- !u!1 &287031854
@@ -2533,7 +2536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NOPE
+  m_text: Nope
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1eee363a74a0bba409f7f0a10da2261e, type: 2}
   m_sharedMaterial: {fileID: -6932200566149645828, guid: 1eee363a74a0bba409f7f0a10da2261e, type: 2}
@@ -3227,7 +3230,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &899083864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3805227038337563065, guid: 778ded0c6b08a58418d538faa20a6cbf, type: 3}
@@ -3753,7 +3768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &946468904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4892,7 +4907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YES!
+  m_text: Yes!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1eee363a74a0bba409f7f0a10da2261e, type: 2}
   m_sharedMaterial: {fileID: -6932200566149645828, guid: 1eee363a74a0bba409f7f0a10da2261e, type: 2}

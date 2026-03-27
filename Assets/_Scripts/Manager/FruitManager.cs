@@ -8,8 +8,7 @@ public class FruitManager : MonoBehaviour
     public static FruitManager Instance;
 
     [Header(" Elements ")]
-    [SerializeField] private Fruit[] fruitPrefabs;
-    [SerializeField] private Fruit[] spawnableFruits;
+    [SerializeField] private SkinDataSO skinData;
     [SerializeField] private Transform fruitParent;
     [SerializeField] private LineRenderer spawnFruitLine;
     private Fruit currentFruit;
@@ -129,7 +128,7 @@ public class FruitManager : MonoBehaviour
         Vector2 spawnPosition = GetSpawnPosition();
 
         currentFruit = Instantiate(
-            spawnableFruits[nextFruitIndex], 
+            skinData.GetSpawnablePrefabs()[nextFruitIndex], 
             spawnPosition, 
             Quaternion.identity, 
             fruitParent);
@@ -175,11 +174,11 @@ public class FruitManager : MonoBehaviour
     //===========================================
     private void MergeProgressCallback(FruitType type, Vector2 position)
     {
-        for (int i = 0; i < fruitPrefabs.Length; i++)
+        for (int i = 0; i < skinData.GetObjectPrefabs().Length; i++)
         {
-            if (fruitPrefabs[i].GetFruitType() == type)
+            if (skinData.GetObjectPrefabs()[i].GetFruitType() == type)
             {
-                SpawnMergedFruit(fruitPrefabs[i], position);
+                SpawnMergedFruit(skinData.GetObjectPrefabs()[i], position);
                 break;
             }
         }
@@ -195,19 +194,19 @@ public class FruitManager : MonoBehaviour
     //===========================================
     private void SetNextFruitIndex()
     {
-        nextFruitIndex = Random.Range(0, spawnableFruits.Length);
+        nextFruitIndex = Random.Range(0, skinData.GetSpawnablePrefabs().Length);
 
         onNextFruitIndexSet?.Invoke();
     }
 
     public string GetNextFruitName()
     {
-        return spawnableFruits[nextFruitIndex].GetFruitType().ToString();
+        return skinData.GetSpawnablePrefabs()[nextFruitIndex].GetFruitType().ToString();
     }
 
     public Sprite GetNextFruitSprite()
     {
-        return spawnableFruits[nextFruitIndex].GetFruitSprite();
+        return skinData.GetSpawnablePrefabs()[nextFruitIndex].GetFruitSprite();
     }
 
 #if UNITY_EDITOR

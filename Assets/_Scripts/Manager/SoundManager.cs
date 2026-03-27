@@ -7,14 +7,20 @@ public class SoundManager : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private AudioSource mergeSound;
 
-    private void Start()
+    private void Awake()
     {
         MergeManager.onMergeProcessed += MergeProcessedCallback;
+        SettingUI.onToggleValueChanged += ToggleValueChangedCalback;
     }
 
     private void OnDestroy()
     {
         MergeManager.onMergeProcessed -= MergeProcessedCallback;
+        SettingUI.onToggleValueChanged -= ToggleValueChangedCalback;
+    }
+    private void ToggleValueChangedCalback(bool toggleValue)
+    {
+        mergeSound.mute = !toggleValue;
     }
 
     private void MergeProcessedCallback(FruitType type, Vector2 vector)
