@@ -11,11 +11,13 @@ public class MenuUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bestScoreText;
     private void Awake()
     {
-        playButton.onClick.AddListener(() => {
+        playButton.onClick.AddListener(() =>
+        {
             GameManager.Instance.SetGameState(GameState.InGame);
         });
-    }
 
+    }
+        
     private void Start()
     {
         bestScoreText.text = ScoreManager.Instance.GetBestScore().ToString();
