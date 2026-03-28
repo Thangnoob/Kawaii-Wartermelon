@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,19 +11,27 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private SkinButton skinButton;
     [SerializeField] private Transform buttonSpawnArea;
     [SerializeField] private Button purchaseButton;
+    [SerializeField] private TextMeshProUGUI skinLabel;
 
     [Header(" Datas ")]
     [SerializeField] private SkinDataSO[] skinDataSOs;
     [SerializeField] private bool[] unlockSkinState;
+    private int lastSelectedSkin;
+    private const string skinButtonKey = "SkinButton_";
+    private const string lastSelectedSkinKey = "LastSelectedSkin";
+        
+    [Header(" Actions ")]
+    public static Action<SkinDataSO> onSkinSeleted;
 
     private void Awake()
     {
-        LoadData();
     }
 
     private void Start()
     {
         Initialize();
+
+        LoadData();
     }
 
     private void Initialize()
@@ -47,7 +56,7 @@ public class ShopManager : MonoBehaviour
 
     private void SkinButtonClickedCallback(int skinButtonIndex)
     {
-        Debug.Log("Skin Index is" + skinButtonIndex);
+        lastSelectedSkin = skinButtonIndex;
         for (int i = 0;i < buttonSpawnArea.childCount; i++)
         {
             SkinButton currenSkinButton = buttonSpawnArea.GetChild(i).GetComponent<SkinButton>();
@@ -56,12 +65,43 @@ public class ShopManager : MonoBehaviour
             else
                 currenSkinButton.ShowOutline();
         }
+
+        if (isSkinUnlocked(skinButtonIndex))
+        {
+            onSkinSeleted?.Invoke(skinDataSOs[skinButtonIndex]);
+
+            SaveLastSelectedSkin();
+        }
+
+        UpdateSkinLabel(skinButtonIndex);
         ManagePurchaseButtonVisibility(skinButtonIndex);
+    }
+
+    public void PurchaseButtonClickedCallback()
+    {
+        //check coin 
+
+        //
+        unlockSkinState[lastSelectedSkin] = true;
+
+        SaveData();
+
+        SkinButtonClickedCallback(lastSelectedSkin);
     }
 
     private void ManagePurchaseButtonVisibility(int skinButtonIndex)
     {
         purchaseButton.gameObject.SetActive(!unlockSkinState[skinButtonIndex]);
+    }
+
+    private bool isSkinUnlocked(int skinButtonIndex)
+    {
+        return unlockSkinState[skinButtonIndex];
+    }
+    
+    private void UpdateSkinLabel(int skinButtonIndex)
+    {
+        skinLabel.text = skinDataSOs[skinButtonIndex].GetName();
     }
 
     private void LoadData()
@@ -70,7 +110,7 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < unlockSkinState.Length; i++)
         {
-            int stateValue = PlayerPrefs.GetInt("SkinButton_" + i);
+            int stateValue = PlayerPrefs.GetInt(skinButtonKey + i);
 
             if (i == 0)
             {
@@ -82,5 +122,27 @@ public class ShopManager : MonoBehaviour
             else
                 unlockSkinState[i] = true;
         }
+
+        LoadLastSeletedSkin();
+    }
+    private void SaveData()
+    {
+        for (int i = 0; i < unlockSkinState.Length;i++)
+        {
+            int unlockState = unlockSkinState[i] ? 1 : 0;
+            PlayerPrefs.SetInt(skinButtonKey + i, unlockState);
+        }
+    }
+
+    private void LoadLastSeletedSkin()
+    {
+        int lastSeletedSkinIndex = PlayerPrefs.GetInt(lastSelectedSkinKey);
+        Debug.Log("Last selected skin " + lastSeletedSkinIndex);
+        SkinButtonClickedCallback(lastSeletedSkinIndex);
+    }
+
+    private void SaveLastSelectedSkin()
+    {
+        PlayerPrefs.SetInt(lastSelectedSkinKey, lastSelectedSkin);
     }
 }

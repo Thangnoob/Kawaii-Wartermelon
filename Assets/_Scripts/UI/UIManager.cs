@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject inGameUI;
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject settingPanel;
-
+    [SerializeField] private GameObject shopUI;
     private void Start()
     {
         GameManager.onGameStateChanged += GameStateChangedCallback;
@@ -67,5 +67,15 @@ public class UIManager : MonoBehaviour
     public void CloseSettingsPanel()
     {
         settingPanel.SetActive(false);  
+    }
+
+    public void OpenShopUI()
+    {
+        shopUI.SetActive(true);
+    }
+
+    public void CloseShopUI()
+    {
+        shopUI.SetActive(false);
     }
 }

@@ -69,7 +69,6 @@ public class ScoreManager : MonoBehaviour
     private void SaveData()
     {
         PlayerPrefs.SetInt(bestScoreKey, bestScore);
-        Debug.Log("ScoreManager best score" + bestScore);
     }
 
     private void LoadData()
@@ -80,7 +79,6 @@ public class ScoreManager : MonoBehaviour
     public int GetBestScore()
     {
         LoadData();
-        Debug.Log("ScoreManager best score" +  bestScore);
         return bestScore;
     }
 }

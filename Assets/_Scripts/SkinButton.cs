@@ -19,6 +19,7 @@ public class SkinButton : MonoBehaviour
     {
         return skinButton;
     }
+
     public void ShowOutline() => selectionOutline.SetActive(true);
     public void HideOutline() => selectionOutline.SetActive(false);
     

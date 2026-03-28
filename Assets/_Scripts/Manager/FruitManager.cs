@@ -34,21 +34,28 @@ public class FruitManager : MonoBehaviour
             Instance = this;
         else 
             Destroy(gameObject);
+        
+        MergeManager.onMergeProcessed += MergeProgressCallback;
+        ShopManager.onSkinSeleted += SkinSeletedCallback;
     }
 
     private void Start()
     {
-        MergeManager.onMergeProcessed += MergeProgressCallback;
-
         canControl = true;
         HideLine();
 
         SetNextFruitIndex();
     }
 
+
     private void OnDestroy()
     {
         MergeManager.onMergeProcessed -= MergeProgressCallback;    
+        ShopManager.onSkinSeleted -= SkinSeletedCallback;
+    }
+    private void SkinSeletedCallback(SkinDataSO skinDataSeleted)
+    {
+        skinData = skinDataSeleted;
     }
 
     private void Update()
