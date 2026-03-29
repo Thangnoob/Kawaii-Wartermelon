@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private AudioSource mergeSound;
 
+    [Header(" Sounds ")]
+    [SerializeField] private AudioClip[] audioClips;
     private void Awake()
     {
         MergeManager.onMergeProcessed += MergeProcessedCallback;
@@ -30,6 +32,7 @@ public class SoundManager : MonoBehaviour
 
     private void PlayMergeSound()
     {
+        mergeSound.clip = audioClips[Random.Range(0, audioClips.Length)];
         mergeSound.pitch = Random.Range(0.9f, 1.1f);
         mergeSound.Play();
     }

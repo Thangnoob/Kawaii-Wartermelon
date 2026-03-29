@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 using Random = UnityEngine.Random;
@@ -92,6 +94,9 @@ public class FruitManager : MonoBehaviour
     }
     private void MouseDownCallBack()
     {
+        if (!isClickDetected())
+            return;
+
         ShowLine();
         PlaceLineAtClickedPosition();
 
@@ -116,6 +121,12 @@ public class FruitManager : MonoBehaviour
         isControlling = false;
     }
 
+    private bool isClickDetected()
+    {
+        Vector2 mousePos = Input.mousePosition;
+
+        return mousePos.y > Screen.height / 4 && mousePos.y < Screen.height - (Screen.height / 4.5);
+    }
     private void StartControlTimer()
     {
         canControl = false;
@@ -215,7 +226,24 @@ public class FruitManager : MonoBehaviour
     {
         return skinData.GetSpawnablePrefabs()[nextFruitIndex].GetFruitSprite();
     }
+    //==========================================
+    //GET FRUIT FOR POWERUP
+    //==========================================
+    public Fruit[] GetSmallFruitForBlast()
+    {
+        List<Fruit> smallFruits = new List<Fruit>();
 
+        for (int i = 0; i < fruitParent.childCount; i++)
+        {
+            Fruit fruit = fruitParent.GetChild(i).GetComponent<Fruit>();
+            int fruitType = (int)fruit.GetFruitType();
+            if (fruitType < 3)
+            {
+                smallFruits.Add(fruit);
+            }
+        }
+        return smallFruits.ToArray();
+    }
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

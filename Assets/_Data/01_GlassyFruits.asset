@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 01_GlassyFruits
   m_EditorClassIdentifier: 
   name: Glassy Fruits
+  price: 20
   objectPrefabs:
   - {fileID: 362144958771182552, guid: edd7a6f8292f81a4db2ca1f0f9d20381, type: 3}
   - {fileID: 55054359319017592, guid: 7bba9573697caf14aabdf7e865fae3ee, type: 3}

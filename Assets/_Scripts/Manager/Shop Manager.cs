@@ -79,9 +79,8 @@ public class ShopManager : MonoBehaviour
 
     public void PurchaseButtonClickedCallback()
     {
-        //check coin 
+        CoinManager.Instance.SpendCoins(skinDataSOs[lastSelectedSkin].GetPrice());
 
-        //
         unlockSkinState[lastSelectedSkin] = true;
 
         SaveData();
@@ -91,6 +90,14 @@ public class ShopManager : MonoBehaviour
 
     private void ManagePurchaseButtonVisibility(int skinButtonIndex)
     {
+        int skinPrice = skinDataSOs[skinButtonIndex].GetPrice();
+        bool canPurchase = CoinManager.Instance.CanPurchase(skinPrice);
+        purchaseButton.interactable = canPurchase;
+        string text = skinPrice.ToString();
+        Debug.Log("Purchase button text: " + text);
+        purchaseButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
+
+
         purchaseButton.gameObject.SetActive(!unlockSkinState[skinButtonIndex]);
     }
 
